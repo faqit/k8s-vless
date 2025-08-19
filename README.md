@@ -14,6 +14,6 @@ curl -I --tlsv1.3 --http2 https://example.com
 
 ## Scripts
 I leaved in root directory the "ClientKeyGen.sh" script, which can help you to create you first key. Do not forget to add your own params to script!  
-Also, there is ./scripts directory, which contains all basic scripts for prepare your system. If you want to do "All in one" just run "full-generation.sh".  
-It will create Public&Private key pair, generate uuid for your server in proper format and type it in config.log file with comments.  
+Also, there is ./scripts directory, which contains all basic scripts to prepare your system. If you want to do "All in one" just run "full-generation.sh".  
+It will create Public&Private key pair, generate uuid for your server in proper format and type it in ConfigMap. Also this script types all those params in config.log file.  
 You can apply k8s config by yourself, but if you dont want - there is script named "applyk8s.sh"
