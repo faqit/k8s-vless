@@ -9,3 +9,6 @@ Also, there is easy script to generate keys for your proxy.
 ## USAGE
 To correct run you need at least 2 nodes - master and worker.  
 You can change that by configuring dep-xray.yml and deleting "affinity" part.  
+
+To find site you want to hide for use this command  
+curl -I --tlsv1.3 --http2 https://example.com  
