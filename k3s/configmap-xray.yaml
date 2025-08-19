@@ -10,14 +10,14 @@ data:
       },
       "inbounds": [
           {
-              "port": 443,                                          \\ CHANGE IF NEEDED, RECOMMEND TO LEAVE 443
-              "listen": "0.0.0.0",                                  \\ CHANGE IF NEEDED, RECOMMEND TO NOT
+              "port": 443,                                      \\ CHANGE IF NEEDED, RECOMMEND TO LEAVE 443
+              "listen": "0.0.0.0",                              \\ CHANGE IF NEEDED, RECOMMEND TO NOT
               "protocol": "vless",
               "settings": {
                   "clients": [
                       {
-                          "id": "PUT_YOUR_SERVERID_HERE",           \\ CREATE YOUR ID, LOOK FOR GENERATION ../scripts
-                          "flow": "xtls-rprx-vision"                \\ DO NOT CHANGE
+                          "id": "{{SERVERID}}",                 \\ CREATE YOUR ID, LOOK FOR GENERATION ../scripts
+                          "flow": "xtls-rprx-vision"            \\ DO NOT CHANGE
                       }
                   ],
                   "decryption": "none"
@@ -26,16 +26,14 @@ data:
                   "network": "tcp",
                   "security": "reality",
                   "realitySettings": {
-                      "dest": "WEBSITE.DOMAIN:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
+                      "dest": "{{WEBISTE}}:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
                       "serverNames": [
-                          "WEBSITE.DOMAIN",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
-                          "www.WEBSITE.DOMAIN"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
+                          "{{WEBSITE}}",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
+                          "www.{{WEBSITE}}"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
                       ],
-                      "privateKey": "PUT_YOUR_PRIVKEY_HERE",       \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
+                      "privateKey": "{{PRIVATEKEY}}",           \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
                       "shortIds": [
-                          "ShortID",                               \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT
-                          "ShortID",                               \\ GENERATE VIA openssl rand -hex 6
-                          "ShortID"
+                          "{{SHORTID}}",                        \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT. GENERATE VIA openssl rand -hex 6
                       ],
                       "acceptProxyProtocol": false
                   }
