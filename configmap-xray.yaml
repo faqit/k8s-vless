@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xray-config
+data:
+  config.json: |
+    {
+      "log": {
+          "loglevel": "warning"
+      },
+      "inbounds": [
+          {
+              "port": 443,                                          \\ CHANGE IF NEEDED, RECOMMEND TO LEAVE 443
+              "listen": "0.0.0.0",                                  \\ CHANGE IF NEEDED, RECOMMEND TO NOT
+              "protocol": "vless",
+              "settings": {
+                  "clients": [
+                      {
+                          "id": "PUT_YOUR_SERVERID_HERE",           \\ CREATE YOUR ID
+                          "flow": "xtls-rprx-vision"                \\ DO NOT CHANGE
+                      }
+                  ],
+                  "decryption": "none"
+              },
+              "streamSettings": {
+                  "network": "tcp",
+                  "security": "reality",
+                  "realitySettings": {
+                      "dest": "WEBSITE.DOMAIN:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
+                      "serverNames": [
+                          "WEBSITE.DOMAIN",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
+                          "www.WEBSITE.DOMAIN"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
+                      ],
+                      "privateKey": "PUT_YOUR_PRIVKEY_HERE",       \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY
+                      "shortIds": [
+                          "ShortID",                               \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT
+                          "ShortID",
+                          "ShortID"
+                      ],
+                      "acceptProxyProtocol": false
+                  }
+              },
+              "sniffing": {
+                  "enabled": true,
+                  "destOverride": [
+                      "http",
+                      "tls"
+                  ]
+              }
+          }
+      ],
+      "outbounds": [
+          {
+              "protocol": "freedom",
+              "tag": "direct"
+          }
+      ]
+    }
