@@ -16,7 +16,7 @@ data:
               "settings": {
                   "clients": [
                       {
-                          "id": "PUT_YOUR_SERVERID_HERE",           \\ CREATE YOUR ID
+                          "id": "PUT_YOUR_SERVERID_HERE",           \\ CREATE YOUR ID, LOOK FOR GENERATION ../scripts
                           "flow": "xtls-rprx-vision"                \\ DO NOT CHANGE
                       }
                   ],
@@ -31,10 +31,10 @@ data:
                           "WEBSITE.DOMAIN",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
                           "www.WEBSITE.DOMAIN"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
                       ],
-                      "privateKey": "PUT_YOUR_PRIVKEY_HERE",       \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY
+                      "privateKey": "PUT_YOUR_PRIVKEY_HERE",       \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
                       "shortIds": [
                           "ShortID",                               \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT
-                          "ShortID",
+                          "ShortID",                               \\ GENERATE VIA openssl rand -hex 6
                           "ShortID"
                       ],
                       "acceptProxyProtocol": false
