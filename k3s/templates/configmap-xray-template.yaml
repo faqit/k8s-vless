@@ -26,7 +26,7 @@ data:
                   "network": "tcp",
                   "security": "reality",
                   "realitySettings": {
-                      "dest": "{{WEBSITE}}:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
+                      "dest": "{{WEBSITE}}:443",                \\ CHANGE TO SERVER YOURE MASQUERADING FOR EXAMPLE www.google.com or google.com
                       "serverNames": [
                           "{{WEBSITE}}",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
                           "www.{{WEBSITE}}"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com

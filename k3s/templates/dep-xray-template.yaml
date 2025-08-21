@@ -18,13 +18,7 @@ spec:
         app: xray
     spec:
       hostNetwork: true
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-role.kubernetes.io/control-plane
-                operator: DoesNotExist
+      {{AFFINITY}}
       containers:
       - name: xray
         image: teddysun/xray:latest
