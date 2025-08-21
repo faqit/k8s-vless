@@ -26,14 +26,15 @@ data:
                   "network": "tcp",
                   "security": "reality",
                   "realitySettings": {
-                      "dest": "{{WEBISTE}}:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
+                      "dest": "{{WEBSITE}}:443",                \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com or google.com
                       "serverNames": [
                           "{{WEBSITE}}",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
                           "www.{{WEBSITE}}"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
                       ],
-                      "privateKey": "{{PRIVATEKEY}}",           \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
+                      "privateKey": "{{PRIVKEY}}",           \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
                       "shortIds": [
-                          "{{SHORTID}}",                        \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT. GENERATE VIA openssl rand -hex 6
+                          "{{SHORTID1}}",
+                          "{{SHORTID2}}",                       \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT. GENERATE VIA openssl rand -hex 6
                       ],
                       "acceptProxyProtocol": false
                   }
