@@ -1,0 +1,12 @@
+#!/bin/bash
+
+privkeygen=$(openssl genpkey -algorithm X25519 | openssl pkey -outform DER | tail -c 32 | base64 | tr '+/' '-_' | tr -d '=')
+
+privkeygen=$openssl genpkey -algorithm X25519
+
+privkey=${privkeygen}
+echo $privkey
+pubkeygen=$(openssl pkey -in <(echo "$privkey") -outform DER | tail -c 32 | base64 | tr '+/' '-_' | tr -d '=')
+pubkey=${pubkeygen}
+echo $privkey
+echo $pubkey

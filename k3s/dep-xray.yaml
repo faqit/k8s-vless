@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: xray
+  labels:
+    app: xray
+spec:
+  selector:
+    matchLabels:
+      app: xray
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: xray
+    spec:
+      hostNetwork: true
+      containers:
+      - name: xray
+        image: teddysun/xray:latest
+        ports:
+        - containerPort: 40443
+          hostPort: 40443
+          name: vless
+        volumeMounts:
+        - name: config
+          mountPath: /etc/xray/config.json
+          subPath: config.json
+      volumes:
+      - name: config
+        configMap:
+          name: xray-config

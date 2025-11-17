@@ -36,7 +36,11 @@ data:
                           "{{SHORTID1}}",
                           "{{SHORTID2}}",                       \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT. GENERATE VIA openssl rand -hex 6
                       ],
-                      "acceptProxyProtocol": false
+                      "acceptProxyProtocol": false,
+                      "packetEncoding": "obfs",                \\ CHANGE TO "NONE" IF CAUSES LONG BUFFERISATION
+                      "recvOriginalSNI": true,
+                      "downlinkOnly": 0,
+                      "uplinkOnly": 0
                   }
               },
               "sniffing": {

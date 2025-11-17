@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xray-config
+data:
+  config.json: |
+    {
+      "log": {
+          "loglevel": "warning"
+      },
+      "inbounds": [
+          {
+              "port": 443,                                    \\ CHANGE IF NEEDED, RECOMMEND TO LEAVE 443
+              "listen": "0.0.0.0",                            \\ CHANGE IF NEEDED, RECOMMEND TO NOT
+              "protocol": "vless",
+              "settings": {
+                  "clients": [
+                      {
+                          "id": "35e49613-2207-19fb-e5d6-83d48d7da24e",                 \\ CREATE YOUR ID, LOOK FOR GENERATION ../scripts
+                          "flow": "xtls-rprx-vision"          \\ DO NOT CHANGE
+                      }
+                  ],
+                  "decryption": "none"
+              },
+              "streamSettings": {
+                  "network": "tcp",
+                  "security": "reality",
+                  "realitySettings": {
+                      "dest": "rutube.ru:443",                \\ CHANGE TO SERVER YOURE MASQUERADING FOR EXAMPLE www.google.com or google.com
+                      "serverNames": [
+                          "rutube.ru",                        \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE google.com
+                          "www.rutube.ru"                     \\ CHANGE TO SERVER YOURE MASQUARADING FOR EXAMPLE www.google.com
+                      ],
+                      "privateKey": "IMXEG_uzATNzUMQvoR87-gVwhvsUSBx-6Dt3y4FtEUE",           \\ CREATE YOUR PUB&PRIV PAIR, PUT HERE PRIVKEY, SCRIPT FOR GENERATE IN ../scripts FOLDER
+                      "shortIds": [
+                          "8514e762c8ac",
+                          "e8b204dfd2fa",                     \\ CREATE ShortID FOR CLIENT. YOU CAN LEAVE ONLY 1 ID OR CREATE AS MANY AS YOU WANT. GENERATE VIA openssl rand -hex 6
+                      ],
+                      "acceptProxyProtocol": false,
+                      "packetEncoding": "obfs",               \\ CHANGE TO "NONE" IF CAUSES LONG BUFFERISATION
+                      "recvOriginalSNI": true,
+                      "downlinkOnly": 0,
+                      "uplinkOnly": 0
+                  }
+              },
+              "sniffing": {
+                  "enabled": true,
+                  "destOverride": [
+                      "http",
+                      "tls"
+                  ]
+              }
+          }
+      ],
+      "outbounds": [
+          {
+              "protocol": "freedom",
+              "tag": "direct"
+          }
+      ]
+    }
